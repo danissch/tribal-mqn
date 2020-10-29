@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoDetailViewController" customModule="tribal_mqn" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="onr-HZ-Skh" id="4aC-0K-fQ4"/>
+                <outlet property="view" destination="iN0-l3-epB" id="yxX-Pc-4DU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cIE-T6-PZx">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="onr-HZ-Skh">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="G01-ag-FAU"/>
+                                <outlet property="delegate" destination="-1" id="dad-Ci-ERF"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="onr-HZ-Skh" firstAttribute="top" secondItem="cIE-T6-PZx" secondAttribute="top" id="LSj-ih-0m5"/>
+                        <constraint firstAttribute="bottom" secondItem="onr-HZ-Skh" secondAttribute="bottom" id="V1n-A2-UqL"/>
+                        <constraint firstItem="onr-HZ-Skh" firstAttribute="leading" secondItem="cIE-T6-PZx" secondAttribute="leading" id="Vtp-w9-1Uh"/>
+                        <constraint firstAttribute="trailing" secondItem="onr-HZ-Skh" secondAttribute="trailing" id="YOR-sy-5O3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="cIE-T6-PZx" secondAttribute="bottom" id="8Er-ZA-Tjv"/>
+                <constraint firstItem="cIE-T6-PZx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="PXu-Yw-a2E"/>
+                <constraint firstItem="cIE-T6-PZx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bnU-4M-IZH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cIE-T6-PZx" secondAttribute="trailing" id="raq-jR-EO6"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="53.571428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

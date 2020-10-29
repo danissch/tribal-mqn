@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageDetailsCell" rowHeight="293" id="6wb-68-SRU" customClass="ImageDetailsCell" customModule="tribal_mqn" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6wb-68-SRU" id="yzx-bD-ky9">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nih-UP-X3i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZ8-oT-aoR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dZ8-oT-aoR" secondAttribute="bottom" id="1YD-0C-wgC"/>
+                            <constraint firstItem="dZ8-oT-aoR" firstAttribute="top" secondItem="nih-UP-X3i" secondAttribute="top" id="6mv-d4-BYl"/>
+                            <constraint firstItem="dZ8-oT-aoR" firstAttribute="leading" secondItem="nih-UP-X3i" secondAttribute="leading" id="BCa-Pm-uk0"/>
+                            <constraint firstAttribute="trailing" secondItem="dZ8-oT-aoR" secondAttribute="trailing" id="Xoq-6E-vO8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nih-UP-X3i" firstAttribute="top" secondItem="yzx-bD-ky9" secondAttribute="top" id="CBT-3k-cMF"/>
+                    <constraint firstItem="nih-UP-X3i" firstAttribute="leading" secondItem="yzx-bD-ky9" secondAttribute="leading" id="DM4-vb-pKV"/>
+                    <constraint firstAttribute="trailing" secondItem="nih-UP-X3i" secondAttribute="trailing" id="TQJ-EE-ud7"/>
+                    <constraint firstAttribute="bottom" secondItem="nih-UP-X3i" secondAttribute="bottom" id="m21-PA-eoE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailedImage" destination="dZ8-oT-aoR" id="2fd-dM-DNt"/>
+            </connections>
+            <point key="canvasLocation" x="205.79710144927537" y="-15.736607142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

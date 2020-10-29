@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="noFavoritesFound" id="YXv-5G-Fmj" customClass="NoFavoritesFoundCVCell" customModule="tribal_mqn" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="307" height="164"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eeA-dX-2L6">
+                <rect key="frame" x="0.0" y="0.0" width="307" height="164"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXE-f9-04Q">
+                        <rect key="frame" x="0.0" y="0.0" width="307" height="164"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No favorites found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Q9-dk-uTP">
+                                <rect key="frame" x="0.0" y="0.0" width="307" height="164"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Q9-dk-uTP" firstAttribute="centerX" secondItem="DXE-f9-04Q" secondAttribute="centerX" id="01d-Gh-GkC"/>
+                            <constraint firstAttribute="trailing" secondItem="3Q9-dk-uTP" secondAttribute="trailing" id="ERk-fv-qfs"/>
+                            <constraint firstAttribute="bottom" secondItem="3Q9-dk-uTP" secondAttribute="bottom" id="FCX-CW-aII"/>
+                            <constraint firstItem="3Q9-dk-uTP" firstAttribute="leading" secondItem="DXE-f9-04Q" secondAttribute="leading" id="j0C-QA-8Hr"/>
+                            <constraint firstItem="3Q9-dk-uTP" firstAttribute="centerY" secondItem="DXE-f9-04Q" secondAttribute="centerY" id="rsr-IE-4S5"/>
+                            <constraint firstItem="3Q9-dk-uTP" firstAttribute="top" secondItem="DXE-f9-04Q" secondAttribute="top" id="zkP-QB-jNk"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="DXE-f9-04Q" secondAttribute="trailing" id="P4n-7L-e0c"/>
+                    <constraint firstItem="DXE-f9-04Q" firstAttribute="top" secondItem="eeA-dX-2L6" secondAttribute="top" id="Uvl-cZ-mad"/>
+                    <constraint firstAttribute="bottom" secondItem="DXE-f9-04Q" secondAttribute="bottom" id="bUj-Bd-W5h"/>
+                    <constraint firstItem="DXE-f9-04Q" firstAttribute="leading" secondItem="eeA-dX-2L6" secondAttribute="leading" id="zJR-VW-JMY"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="307" height="164"/>
+            <point key="canvasLocation" x="-163.04347826086959" y="36.830357142857139"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
