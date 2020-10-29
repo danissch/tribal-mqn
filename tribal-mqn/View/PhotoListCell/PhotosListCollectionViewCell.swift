@@ -253,9 +253,29 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
     
     func initUserContainer(){
         containerUser = UIView()
+        self.containerUser?.clipsToBounds = true
+        self.containerUser?.backgroundColor = .init(white: 1.0, alpha: 1.0)
+        self.containerUser?.layer.borderWidth = 2.0
+        self.containerUser?.layer.borderColor = UIColor.white.cgColor
+        self.containerUser?.layer.cornerRadius = 36 / 2
+        
+        
         imageViewUser = UIImageView()
+        self.imageViewUser?.clipsToBounds = true
+        self.imageViewUser?.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        self.imageViewUser?.contentMode = .scaleAspectFill
+        self.imageViewUser?.layer.cornerRadius = 36 / 2
         
         labelNameUser = UILabel()
+        labelNameUser?.backgroundColor = .clear
+        labelNameUser?.layer.cornerRadius = 10
+        labelNameUser?.layer.masksToBounds = true
+        
+        labelNameUser?.adjustsFontSizeToFitWidth = true
+        labelNameUser?.font = UIFont.systemFont(ofSize: 11.0)
+        labelNameUser?.lineBreakMode = .byTruncatingMiddle
+        labelNameUser?.numberOfLines = 2
+        
         
         containerUser?.addSubview(imageViewUser!)
         containerUser?.addSubview(labelNameUser!)
@@ -266,14 +286,12 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
         
         let gestureUserName = UITapGestureRecognizer(target: self, action:  #selector(self.userNameAction))
         labelNameUser?.addGestureRecognizer(gestureUserName)
-        
-        
+
         
         
     }
     
     func setUserInfo(){
-        
         
         self.bringSubviewToFront(containerUser!)
         self.bringSubviewToFront(imageViewUser!)
@@ -286,12 +304,7 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint(item: containerUser!, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: -5).isActive = true
         
         NSLayoutConstraint(item: containerUser!, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 5).isActive = true
-        
-        
-        
-        
-        
-        
+
         
         imageViewUser?.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: imageViewUser!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 2, constant: 36).isActive = true
@@ -315,43 +328,15 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
         
         
         
-        
-        
         if let url = URL(string: userImage ?? "") {
             imageViewUser?.kf.setImage(with: url, completionHandler: {_,_,_,_ in
-                
-//                self.containerUser?.translatesAutoresizingMaskIntoConstraints = true
-                self.containerUser?.clipsToBounds = true
-                self.containerUser?.backgroundColor = .init(white: 1.0, alpha: 1.0)
-                self.containerUser?.layer.borderWidth = 2.0
-                self.containerUser?.layer.borderColor = UIColor.white.cgColor
-                self.containerUser?.layer.cornerRadius = (self.containerUser?.frame.height ?? 0) / 2
-                
-//                self.imageViewUser?.translatesAutoresizingMaskIntoConstraints = true
-                self.imageViewUser?.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-                self.imageViewUser?.contentMode = .scaleAspectFill
-                self.imageViewUser?.clipsToBounds = true
-                self.imageViewUser?.layer.cornerRadius = (self.containerUser?.frame.height ?? 0) / 2
-                
                 self.imageViewUser?.isUserInteractionEnabled = true
-                
-                self.containerUser?.layoutIfNeeded()
-                self.imageViewUser?.layoutIfNeeded()
-                
                 
             })
             
-            
         }
-        
-        labelNameUser?.backgroundColor = .clear
-        labelNameUser?.layer.cornerRadius = 10
-        labelNameUser?.layer.masksToBounds = true
         labelNameUser?.text = userName
-        labelNameUser?.adjustsFontSizeToFitWidth = true
-        labelNameUser?.font = UIFont.systemFont(ofSize: 11.0)
-        labelNameUser?.lineBreakMode = .byTruncatingMiddle
-        labelNameUser?.numberOfLines = 2
+        
         
     }
     
