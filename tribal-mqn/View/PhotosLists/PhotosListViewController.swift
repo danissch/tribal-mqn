@@ -46,10 +46,11 @@ class PhotosListViewController: UIViewController {
         photosListViewModel.networkService = NetworkService.get
         self.photosListViewModel = photosListViewModel as PhotosListViewModelProtocol
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
-        
+        collectionView.register(NoFavoritesFoundCVCell.self,
+                forCellWithReuseIdentifier: "noFavoritesFound")
         self.collectionView?.register(PhotosListCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         self.hideKeyboardWhenTappedAround()
-                
+        setActivityIndicatorConfig()
         computeSizes()
         loadNextPage()
         
@@ -156,6 +157,9 @@ extension PhotosListViewController: UICollectionViewDataSource {
         if isSearching{
             return photosListViewModel?.filteredPhotosList.count ?? 0
         }
+        
+        if photosListViewModel?.photosList.count == 0 { return 1 }
+        
         return (photosListViewModel?.photosList.count ?? 0)
     }
         
@@ -163,20 +167,36 @@ extension PhotosListViewController: UICollectionViewDataSource {
         
         let listCount = isSearching ? photosListViewModel?.filteredPhotosList.count ?? 0 : photosListViewModel?.photosList.count ?? 0
         
+
+        if listCount == 0  {
+            startActivityIndicator()
+            let noRowsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "noFavoritesFound", for: indexPath) as! NoFavoritesFoundCVCell
+            noRowsCell.noFavoritesLabel.text = ""
+            return noRowsCell
+        }
+        stopActivityIndicator()
         if (indexPath.row >= (listCount) - preloadCount) && !loadingData { loadNextPage() }
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PhotosListCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+            
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PhotosListCollectionViewCell
-        let viewModelItem = isSearching ? photosListViewModel!.filteredPhotosList[indexPath.row] : photosListViewModel!.photosList[indexPath.row]
-        
-        cell.width = photoCellSizeStyle1_width
-        cell.height = photoCellSizeStyle1_height
-        cell.contentView.layer.cornerRadius = 10
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-        cell.contentView.layer.masksToBounds = true
-        cell.setData(photo:viewModelItem, viewModel: photosListViewModel as! PhotosListViewModel)
-        
-        return cell
+        if let viewModelItem = isSearching ? photosListViewModel?.filteredPhotosList[indexPath.row] : photosListViewModel?.photosList[indexPath.row] {
+            
+            cell.width = photoCellSizeStyle1_width
+            cell.height = photoCellSizeStyle1_height
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.borderWidth = 1.0
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true
+            cell.setData(photo:viewModelItem, viewModel: photosListViewModel as! PhotosListViewModel)
+        }
+            
+            
+            
+            return cell
+//        }
     }
         
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -188,8 +208,11 @@ extension PhotosListViewController: UICollectionViewDataSource {
 
 extension PhotosListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = PhotoDetailViewController.instantiateFromXIB() as PhotoDetailViewController
-        if let dataItem = photosListViewModel?.photosList[indexPath.row] {
+        if photosListViewModel?.photosList.count == 0 { return }
+        var list = isSearching ? photosListViewModel?.filteredPhotosList : photosListViewModel?.photosList
+        
+        if let dataItem = list?[indexPath.row] {
+            let vc = PhotoDetailViewController.instantiateFromXIB() as PhotoDetailViewController
             self.presentWithStyle1(vcFrom: self, vcTo: vc)
             vc.photo = dataItem
             vc.originFav = false
@@ -206,6 +229,16 @@ extension PhotosListViewController: UICollectionViewDelegateFlowLayout{
         let size = photoCellSize
         currentCellWidth = size
         currentCellHeight = size + 50
+        
+        if isSearching {
+            currentCellWidth = screenWidth - 25.0
+            currentCellHeight = (screenWidth - 25.0) / 2.0
+        }
+        
+        if photosListViewModel?.photosList.count == 0 {
+            currentCellWidth = self.view.frame.width
+            currentCellHeight = self.view.frame.height / 2
+        }
         
         if indexPath.row == 0 {
             currentCellWidth = photoCellSizeStyle1_width

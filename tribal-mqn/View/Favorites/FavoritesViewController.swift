@@ -163,8 +163,9 @@ extension FavoritesViewController: UICollectionViewDataSource {
 
 extension FavoritesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = PhotoDetailViewController.instantiateFromXIB() as PhotoDetailViewController
+        if photosListViewModel?.favoritesPhotosList.count == 0  { return }
         if let dataItem = photosListViewModel?.favoritesPhotosList[indexPath.row] {
+            let vc = PhotoDetailViewController.instantiateFromXIB() as PhotoDetailViewController
             self.presentWithStyle1(vcFrom: self, vcTo: vc)
             vc.localPhoto = dataItem
             vc.originFav = true
