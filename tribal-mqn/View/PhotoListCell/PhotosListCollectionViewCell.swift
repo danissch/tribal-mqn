@@ -48,6 +48,9 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
         initFavoritesAnimation()
         likesInit()
         initUserContainer()
+        
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -101,9 +104,10 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
            
             image.clipsToBounds = true
             image.kf.setImage(with: url, completionHandler: {_,_,_,_ in
+                self.setUserInfo()
                 self.setFavStatus()
                 self.setLikes()
-                self.setUserInfo()
+                
             })
         }
     }
@@ -250,7 +254,7 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
     func initUserContainer(){
         containerUser = UIView()
         imageViewUser = UIImageView()
-        imageViewLike?.clipsToBounds = true
+        
         labelNameUser = UILabel()
         
         containerUser?.addSubview(imageViewUser!)
@@ -264,9 +268,13 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
         labelNameUser?.addGestureRecognizer(gestureUserName)
         
         
+        
+        
     }
     
     func setUserInfo(){
+        
+        
         self.bringSubviewToFront(containerUser!)
         self.bringSubviewToFront(imageViewUser!)
         
@@ -278,6 +286,11 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint(item: containerUser!, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: -5).isActive = true
         
         NSLayoutConstraint(item: containerUser!, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 5).isActive = true
+        
+        
+        
+        
+        
         
         
         imageViewUser?.translatesAutoresizingMaskIntoConstraints = false
@@ -299,21 +312,36 @@ class PhotosListCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint(item: labelNameUser!, attribute: NSLayoutConstraint.Attribute.leftMargin, relatedBy: NSLayoutConstraint.Relation.equal, toItem: imageViewUser, attribute: NSLayoutConstraint.Attribute.leftMargin, multiplier: 1, constant: 40).isActive = true
         
-        containerUser?.clipsToBounds = true
-        containerUser?.backgroundColor = .init(white: 1.0, alpha: 1.0)
-        containerUser?.layer.borderWidth = 2.0
-        containerUser?.layer.borderColor = UIColor.white.cgColor
-        containerUser?.layer.cornerRadius = (containerUser?.frame.height ?? 0) / 2
+        
+        
+        
         
         
         if let url = URL(string: userImage ?? "") {
             imageViewUser?.kf.setImage(with: url, completionHandler: {_,_,_,_ in
+                
+//                self.containerUser?.translatesAutoresizingMaskIntoConstraints = true
+                self.containerUser?.clipsToBounds = true
+                self.containerUser?.backgroundColor = .init(white: 1.0, alpha: 1.0)
+                self.containerUser?.layer.borderWidth = 2.0
+                self.containerUser?.layer.borderColor = UIColor.white.cgColor
+                self.containerUser?.layer.cornerRadius = (self.containerUser?.frame.height ?? 0) / 2
+                
+//                self.imageViewUser?.translatesAutoresizingMaskIntoConstraints = true
+                self.imageViewUser?.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+                self.imageViewUser?.contentMode = .scaleAspectFill
+                self.imageViewUser?.clipsToBounds = true
+                self.imageViewUser?.layer.cornerRadius = (self.containerUser?.frame.height ?? 0) / 2
+                
+                self.imageViewUser?.isUserInteractionEnabled = true
+                
+                self.containerUser?.layoutIfNeeded()
+                self.imageViewUser?.layoutIfNeeded()
+                
+                
             })
-            imageViewUser?.clipsToBounds = true
-            imageViewUser?.layer.cornerRadius = (containerUser?.frame.height ?? 0) / 2
-            imageViewUser?.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-            imageViewUser?.contentMode = .scaleAspectFill
-            imageViewUser?.isUserInteractionEnabled = true
+            
+            
         }
         
         labelNameUser?.backgroundColor = .clear

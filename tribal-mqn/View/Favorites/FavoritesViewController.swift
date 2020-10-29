@@ -66,7 +66,7 @@ class FavoritesViewController: UIViewController {
         screenWidth = UIScreen.main.bounds.width
         photoCellSize = (screenWidth - 50.0) / 2.0
         photoCellSizeStyle1_width = screenWidth - 25.0
-        photoCellSizeStyle1_height = (screenWidth - 25.0) / 2.0
+        photoCellSizeStyle1_height = (screenWidth) / 2.0
         loadingCellSize = screenWidth - 40.0
     }
 
