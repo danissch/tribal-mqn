@@ -34,7 +34,6 @@
 		8340A0D22547C57D00DC2766 /* fav.json in Resources */ = {isa = PBXBuildFile; fileRef = 8340A0D12547C57D00DC2766 /* fav.json */; };
 		83AE2C83254520A10089E6C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE2C82254520A10089E6C8 /* AppDelegate.swift */; };
 		83AE2C85254520A10089E6C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE2C84254520A10089E6C8 /* SceneDelegate.swift */; };
-		83AE2C87254520A10089E6C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE2C86254520A10089E6C8 /* ViewController.swift */; };
 		83AE2C8A254520A10089E6C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AE2C88254520A10089E6C8 /* Main.storyboard */; };
 		83AE2C8D254520A10089E6C8 /* tribal_mqn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83AE2C8B254520A10089E6C8 /* tribal_mqn.xcdatamodeld */; };
 		83AE2C8F254520A70089E6C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AE2C8E254520A70089E6C8 /* Assets.xcassets */; };
@@ -106,7 +105,6 @@
 		83AE2C7F254520A10089E6C8 /* tribal-mqn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tribal-mqn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AE2C82254520A10089E6C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83AE2C84254520A10089E6C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		83AE2C86254520A10089E6C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		83AE2C89254520A10089E6C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83AE2C8C254520A10089E6C8 /* tribal_mqn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tribal_mqn.xcdatamodel; sourceTree = "<group>"; };
 		83AE2C8E254520A70089E6C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -306,7 +304,6 @@
 				83E6060E2545EB1000C5EC04 /* PhotoListCell */,
 				83AE2C88254520A10089E6C8 /* Main.storyboard */,
 				83AE2C90254520A70089E6C8 /* LaunchScreen.storyboard */,
-				83AE2C86254520A10089E6C8 /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -649,7 +646,6 @@
 				83409FAC2545F2C600DC2766 /* AFSessionManager.swift in Sources */,
 				83409FEC25460C8900DC2766 /* User.swift in Sources */,
 				83409FC02545FAE200DC2766 /* PhotosListViewModel.swift in Sources */,
-				83AE2C87254520A10089E6C8 /* ViewController.swift in Sources */,
 				83409FC52545FB2700DC2766 /* PhotosListViewModelProtocol.swift in Sources */,
 				83ED3999254A5EBE00350E3D /* NoFavoritesFoundCVCell.swift in Sources */,
 				8340A062254673D200DC2766 /* PhotosListViewController.swift in Sources */,

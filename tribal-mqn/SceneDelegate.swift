@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let listNewVC = PhotosListViewController()
         
-        let mainVC = ViewController()
+//        let mainVC = ViewController()
         let favoritesVC = FavoritesViewController()
         
         let home_item = UITabBarItem()
